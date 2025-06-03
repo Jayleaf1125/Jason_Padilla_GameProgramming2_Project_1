@@ -3,10 +3,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float MovementSpeed;
-
     Rigidbody2D _rb;
     Vector3 _direction;
-
+    
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();

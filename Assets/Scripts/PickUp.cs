@@ -1,12 +1,14 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SocialPlatforms.Impl;
+using TMPro;
 
 public class PickUp : MonoBehaviour
 {
     PlayerMovement _pm;
     SpriteRenderer _sr;
     float score;
+    [SerializeField] TMP_Text ScoreText;
 
     public float SpeedMultiplier;
     public float SpeedMultiplierDuration = 0.5f;
@@ -20,7 +22,6 @@ public class PickUp : MonoBehaviour
     private void Start()
     {
         score = 0;
-        DisplayScoreInLog();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -53,8 +54,7 @@ public class PickUp : MonoBehaviour
 
     void AddScore()
     {
-        score++;
-        DisplayScoreInLog();
+        ScoreText.text = string.Format("{0}", ++score);        
     }
 
     void DisplayScoreInLog() => Debug.Log(string.Format("Current Score: {0}", score));
