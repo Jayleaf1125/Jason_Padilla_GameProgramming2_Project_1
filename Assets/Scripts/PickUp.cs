@@ -9,14 +9,18 @@ public class PickUp : MonoBehaviour
     SpriteRenderer _sr;
     float score;
     [SerializeField] TMP_Text ScoreText;
+    GameTimer _Timer;
 
     public float SpeedMultiplier;
     public float SpeedMultiplierDuration = 0.5f;
+
+    public float TimeAmountToIncrease;
 
     private void Awake()
     {
         _pm = GetComponent<PlayerMovement>();
         _sr = GetComponent<SpriteRenderer>();
+        _Timer = GameObject.Find("Game Manager").GetComponent<GameTimer>();
     }
 
     private void Start()
@@ -40,7 +44,15 @@ public class PickUp : MonoBehaviour
             case "Speed Boost":
                 StartCoroutine(IncreaseSpeed());
                 break;
+            case "Time Boost":
+                IncreaseTime();
+                break;
         }
+    }
+
+    void IncreaseTime()
+    {
+        _Timer.timer += TimeAmountToIncrease;
     }
 
     IEnumerator IncreaseSpeed()

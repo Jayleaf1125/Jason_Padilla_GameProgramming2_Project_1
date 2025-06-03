@@ -4,9 +4,11 @@ public class GameManager : MonoBehaviour
 {
     public GameObject Coin;
     public GameObject SpeedBoost;
+    public GameObject TimeBoost;
     public float Range;
     public float CoinTimerInterval;
     public float SpeedBoostTimerInterval;
+    public float TimeBoostTimerInterval;
     float resetInterval;
 
 
@@ -15,6 +17,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         InvokeRepeating("SpawnSpeedBoost", 0f, SpeedBoostTimerInterval);
+        InvokeRepeating("SpawnTimeBoost", 0f, TimeBoostTimerInterval);
         resetInterval = CoinTimerInterval;
     }
 
@@ -39,12 +42,21 @@ public class GameManager : MonoBehaviour
         Instantiate(Coin, pos, Quaternion.identity);
     }
 
-    void SpawnSpeedBoost(GameObject GameObj)
+    void SpawnSpeedBoost()
     {
         Vector3 pos = new Vector3(0, 0, 0);
         pos.x = Random.Range(-Range, Range);
         pos.y = Random.Range(-Range, Range);
         pos.z = 0f;
         Instantiate(SpeedBoost, pos, Quaternion.identity);
+    }
+
+    void SpawnTimeBoost()
+    {
+        Vector3 pos = new Vector3(0, 0, 0);
+        pos.x = Random.Range(-Range, Range);
+        pos.y = Random.Range(-Range, Range);
+        pos.z = 0f;
+        Instantiate(TimeBoost, pos, Quaternion.identity);
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Coin
   - Speed Boost
+  - Time Boost
   layers:
   - Default
   - TransparentFX
