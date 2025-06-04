@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
     KeepingScore _keepingScore;
 
 
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

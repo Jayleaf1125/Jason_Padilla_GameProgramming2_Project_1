@@ -1,14 +1,19 @@
 using UnityEngine;
+using TMPro;
 
-public class KeepingScore : MonoBehaviour
+public class GameOverScreen : MonoBehaviour
 {
-    public float Score;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Score = 0;
+        
     }
 
-    
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }

@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class GameTimer : MonoBehaviour
 {
@@ -23,7 +22,6 @@ public class GameTimer : MonoBehaviour
         if (timer <= 0)
         {
             text.text = "0:00";
-            //SceneManager.LoadSceneAsync();
             return;
         }
 
