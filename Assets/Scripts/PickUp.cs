@@ -7,25 +7,21 @@ public class PickUp : MonoBehaviour
 {
     PlayerMovement _pm;
     SpriteRenderer _sr;
-    float score;
-    [SerializeField] TMP_Text ScoreText;
+    KeepingScore _keepingScore;
     GameTimer _Timer;
 
     public float SpeedMultiplier;
     public float SpeedMultiplierDuration = 0.5f;
-
     public float TimeAmountToIncrease;
 
     private void Awake()
     {
         _pm = GetComponent<PlayerMovement>();
         _sr = GetComponent<SpriteRenderer>();
-        _Timer = GameObject.Find("Game Manager").GetComponent<GameTimer>();
-    }
 
-    private void Start()
-    {
-        score = 0;
+        GameObject gm = GameObject.Find("Game Manager");
+        _Timer = gm.GetComponent<GameTimer>();
+        _keepingScore = gm.GetComponentInChildren<KeepingScore>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -64,10 +60,5 @@ public class PickUp : MonoBehaviour
         _pm.MovementSpeed /= SpeedMultiplier;
     }
 
-    void AddScore()
-    {
-        ScoreText.text = string.Format("{0}", ++score);        
-    }
-
-    void DisplayScoreInLog() => Debug.Log(string.Format("Current Score: {0}", score));
+    void AddScore() => ++(_keepingScore.Score);
 }

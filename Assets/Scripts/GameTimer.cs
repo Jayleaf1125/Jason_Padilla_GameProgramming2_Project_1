@@ -1,28 +1,40 @@
 using System;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameTimer : MonoBehaviour
 {
     public float timer;
     [SerializeField] TMP_Text text;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        timer -= Time.deltaTime;
+        Timer();
+    }
+
+    void Timer()
+    {
+        timer -= Time.fixedDeltaTime;
+        timer = Mathf.Floor(timer);
         text.text = Convert.ToString(timer);
 
         if (timer <= 0)
         {
-            text.text = "0";
+            text.text = "0:00";
+            //SceneManager.LoadSceneAsync();
+            return;
         }
+
+        ConvertToTimeText(timer);
     }
 
+    void ConvertToTimeText(float timer)
+    {
+        int minutes = Mathf.FloorToInt(timer / 60);
+        int seconds = Mathf.FloorToInt(timer % 60);
+        text.text = string.Format("{0:00}: {1:00}", minutes, seconds);
+    }
 
 }
