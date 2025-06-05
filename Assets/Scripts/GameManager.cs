@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] TMP_Text ScoreText;
     KeepingScore _keepingScore;
+    bool IsPlaying;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -26,13 +27,32 @@ public class GameManager : MonoBehaviour
         resetInterval = CoinTimerInterval;
 
         _keepingScore = GetComponentInChildren<KeepingScore>();
+        IsPlaying = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        CoinTimer();
-        ScoreText.text = $"{_keepingScore.Score}";
+        IsTheGamePlaying();
+    }
+
+    public void SetPlaying(bool boolean)
+    {
+        IsPlaying = boolean;
+    }
+
+    void IsTheGamePlaying()
+    {
+        if (IsPlaying)
+        {
+            CoinTimer();
+            ScoreText.text = $"{_keepingScore.Score}";
+        }
+        else
+        {
+            CancelInvoke("SpawnSpeedBoost");
+            CancelInvoke("SpawnTimeBoost");
+        }
     }
 
     void CoinTimer()
