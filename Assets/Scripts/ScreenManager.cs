@@ -20,7 +20,7 @@ public class ScreenManager : MonoBehaviour
     void Start()
     {        
         IsGameOver = false;
-        _gm = GetComponent<GameManager>();
+        _gm = GameManager.GetComponent<GameManager>();
     }
 
     // Update is called once per frame
