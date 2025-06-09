@@ -5,6 +5,7 @@ public class ScreenManager : MonoBehaviour
 {
     public GameObject GameOverScreen;
     public GameObject GameManager;
+    public GameObject Player;
 
     public TMP_Text TimeText;
     public TMP_Text ScoreText;
@@ -14,7 +15,6 @@ public class ScreenManager : MonoBehaviour
     bool IsGameOver;
     GameManager _gm;
 
-    //float Time;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -48,5 +48,6 @@ public class ScreenManager : MonoBehaviour
         ScoreText.gameObject.SetActive(false);
         _gm.SetPlaying(false);
         GameManager.SetActive(false);
+        Player.SetActive(false);
     }
 }

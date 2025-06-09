@@ -25,6 +25,4 @@ public class PlayerMovement : MonoBehaviour
 
         return _direction;
     }
-
-    Vector3 GetDirection() => _direction;
 }

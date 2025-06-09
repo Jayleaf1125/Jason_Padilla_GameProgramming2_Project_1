@@ -27,7 +27,6 @@ public class SavePosition : MonoBehaviour
 
     void SavePos()
     {
-        Debug.Log("Save Position");
         PosSave = new Vector3(this.transform.position.x, this.transform.position.y, 0);
         LocationObj = Instantiate(SaveLocationPrefab, PosSave, Quaternion.identity);
         IsPositionBeingSaved = true;
@@ -35,7 +34,6 @@ public class SavePosition : MonoBehaviour
 
     void LoadPos()
     {
-        Debug.Log("Load Position");
         this.transform.position = PosSave;
         Destroy(LocationObj);
         PosSave = Vector3.zero;

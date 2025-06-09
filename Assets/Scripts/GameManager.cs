@@ -1,4 +1,3 @@
-
 using TMPro;
 using UnityEngine;
 
@@ -10,24 +9,27 @@ public class GameManager : MonoBehaviour
 
     public float Range;
     public float CoinTimerInterval;
-    public float SpeedBoostTimerInterval;
-    public float TimeBoostTimerInterval;
+    public float SpawnSpeedBoostTimerInterval;
+    public float SpawnTimeBoostTimerInterval;
     float resetInterval;
 
     [SerializeField] TMP_Text ScoreText;
     KeepingScore _keepingScore;
     bool IsPlaying;
+    AudioManager _audioManager;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        InvokeRepeating("SpawnSpeedBoost", 0f, SpeedBoostTimerInterval);
-        InvokeRepeating("SpawnTimeBoost", 0f, TimeBoostTimerInterval);
+        InvokeRepeating("SpawnSpeedBoost", 0f, SpawnSpeedBoostTimerInterval);
+        InvokeRepeating("SpawnTimeBoost", 0f, SpawnTimeBoostTimerInterval);
         resetInterval = CoinTimerInterval;
 
         _keepingScore = GetComponentInChildren<KeepingScore>();
         IsPlaying = true;
+        _audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        _audioManager.PlayBackgroundMusic();
     }
 
     // Update is called once per frame
