@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         if (IsPlaying)
         {
             CoinTimer();
-            ScoreText.text = $"{_keepingScore.Score}";
+            ScoreText.text = $"Score: {_keepingScore.Score}";
         }
         else
         {

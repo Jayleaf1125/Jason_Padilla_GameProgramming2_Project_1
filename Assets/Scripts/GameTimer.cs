@@ -5,7 +5,12 @@ using TMPro;
 public class GameTimer : MonoBehaviour
 {
     public float timer;
-    [SerializeField] TMP_Text text;
+    [SerializeField] TMP_Text timerText;
+
+    private void Start()
+    {
+        timerText.text = $"Time - {timer}";
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -17,11 +22,11 @@ public class GameTimer : MonoBehaviour
     {
         timer -= Time.fixedDeltaTime;
         timer = Mathf.Floor(timer);
-        text.text = Convert.ToString(timer);
+        timerText.text = Convert.ToString(timer);
 
         if (timer <= 0)
         {
-            text.text = "0:00";
+            timerText.text = "Time - 0:00";
             return;
         }
 
@@ -32,7 +37,7 @@ public class GameTimer : MonoBehaviour
     {
         int minutes = Mathf.FloorToInt(timer / 60);
         int seconds = Mathf.FloorToInt(timer % 60);
-        text.text = string.Format("{0:00}: {1:00}", minutes, seconds);
+        timerText.text = string.Format("Time - {0:00}: {1:00}", minutes, seconds);
     }
 
 }

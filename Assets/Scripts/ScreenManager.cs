@@ -26,7 +26,7 @@ public class ScreenManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (TimeText.text == "0:00" && !IsGameOver)
+        if (TimeText.text == "Time - 0:00" && !IsGameOver)
         {
             SetOn();
             SetOff();
@@ -35,7 +35,7 @@ public class ScreenManager : MonoBehaviour
 
     void SetOn()
     {
-        TotalScoreText.text = $"{TotalScoreText.text} {ScoreText.text}";
+        TotalScoreText.text = $"{ScoreText.text}";
         GameOverScreen.SetActive(true);
         TotalScoreText.gameObject.SetActive(true);
         GameOverText.gameObject.SetActive(true);
