@@ -51,7 +51,6 @@ public class PickUp : MonoBehaviour
     {
         _Timer.timer += TimeAmountToIncrease;
         _audioManager.PlayTimeBoostSound();
-
     }
 
     IEnumerator IncreaseSpeed()

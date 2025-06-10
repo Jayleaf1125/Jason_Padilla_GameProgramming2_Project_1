@@ -27,18 +27,16 @@ public class SavePosition : MonoBehaviour
 
     void SavePos()
     {
-        PosSave = new Vector3(this.transform.position.x, this.transform.position.y, 0);
+        PosSave = new Vector3(transform.position.x, transform.position.y, 0);
         LocationObj = Instantiate(SaveLocationPrefab, PosSave, Quaternion.identity);
         IsPositionBeingSaved = true;
     }
 
     void LoadPos()
     {
-        this.transform.position = PosSave;
+        transform.position = PosSave;
         Destroy(LocationObj);
         PosSave = Vector3.zero;
         IsPositionBeingSaved = false;
     }
-
-
 }
