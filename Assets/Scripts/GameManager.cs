@@ -16,8 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMP_Text ScoreText;
     KeepingScore _keepingScore;
     bool IsPlaying;
-    AudioManager _audioManager;
-
+    AudioManager _audioManager; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

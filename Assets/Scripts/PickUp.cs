@@ -50,7 +50,7 @@ public class PickUp : MonoBehaviour
     void IncreaseTime()
     {
         _Timer.timer += TimeAmountToIncrease;
-        //_audioManager.PlayTimeBoostCollectSound();
+        _audioManager.PlayTimeBoostSound();
 
     }
 

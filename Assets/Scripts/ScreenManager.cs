@@ -14,6 +14,7 @@ public class ScreenManager : MonoBehaviour
 
     bool IsGameOver;
     GameManager _gm;
+    AudioManager _audioManager;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,6 +22,8 @@ public class ScreenManager : MonoBehaviour
     {        
         IsGameOver = false;
         _gm = GameManager.GetComponent<GameManager>();
+        _audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+
     }
 
     // Update is called once per frame
@@ -40,6 +43,7 @@ public class ScreenManager : MonoBehaviour
         TotalScoreText.gameObject.SetActive(true);
         GameOverText.gameObject.SetActive(true);
         IsGameOver = true;
+        _audioManager.PlayGameOverSound();
     }
 
     void SetOff()
@@ -49,5 +53,6 @@ public class ScreenManager : MonoBehaviour
         _gm.SetPlaying(false);
         GameManager.SetActive(false);
         Player.SetActive(false);
+        _audioManager.StopBackgroundMusic();
     }
 }
